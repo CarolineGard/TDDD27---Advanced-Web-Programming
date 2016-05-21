@@ -9,12 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var BerryPlace = (function () {
-    function BerryPlace() {
-    }
-    return BerryPlace;
-}());
-exports.BerryPlace = BerryPlace;
+var berry_detail_component_1 = require('./berry-detail.component');
 var AppComponent = (function () {
     function AppComponent() {
         this.title = 'Smultronstället';
@@ -24,8 +19,9 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n  \t<h1>{{title}}</h1>\n  \t<h2>Alla smultronst\u00E4llen:</h2>\n  \t<ul class=\"berries\">\n  \t\t<li *ngFor=\"let berry of berries\" [class.selected]=\"berry === selectedBerry\" (click)=\"onSelect(berry)\"> \n  \t\t\t<span class=\"badge\">{{berry.id}}</span> {{berry.name}}\n  \t\t</li>\n  \t</ul>\n  \t<div *ngIf=\"selectedBerry\">\n  \t\t<div>\n\t\t \t<label>name: </label>\n\t\t \t<input [(ngModel)]=\"selectedBerry.name\" placeholder=\"name\"><br><br>\n\t\t \t<label>Where is it located? </label>\n\t\t \t<input [(ngModel)]=\"selectedBerry.location\" placeholder=\"name\"><br><br>\n\t\t \t<label>Category: </label>\n\t\t \t<input [(ngModel)]=\"selectedBerry.category\" placeholder=\"name\"><br><br>\n\t\t \t<label>Description: </label>\n\t\t \t<input [(ngModel)]=\"selectedBerry.description\" placeholder=\"name\">\n\t\t \t</div>\n\t\t</div>\n  \t",
-            styles: ["\n  \t\t.selected {\n  \t\t\tbackground-color: #cfd8ca !important;\n  \t\t\tcolor: white;\n  \t\t}\n  \t\t.berries li {\n  \t\t\tcursor: pointer;\n  \t\t\tposition: relative;\n  \t\t\tleft: 0;\n  \t\t}\n  \t\t.berries li.selected:hover {\n  \t\t\tbackground-color: #607D8B;\n  \t\t}\n  \t\t.berries li:hover {\n  \t\t\tbackground-color: #607DaB;\n  \t\t}\n  \t"]
+            template: "\n    <h1>{{title}}</h1>\n    <h2>Alla smultronst\u00E4llen:</h2>\n    <ul class=\"berries\">\n      <li *ngFor=\"let berry of berries\" [class.selected]=\"berry === selectedBerry\" (click)=\"onSelect(berry)\"> \n        <span class=\"badge\">{{berry.id}}</span> {{berry.name}}\n      </li>\n    </ul>\n    <my-berry-detail [berry]=\"selectedBerry\"></my-berry-detail>\n    ",
+            styles: ["\n      .selected {\n        background-color: #cfd8ca !important;\n        color: white;\n      }\n      .berries li {\n        cursor: pointer;\n        position: relative;\n        left: 0;\n      }\n      .berries li.selected:hover {\n        background-color: #607D8B;\n      }\n      .berries li:hover {\n        background-color: #607DaB;\n      }\n    "],
+            directives: [berry_detail_component_1.BerryDetailComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
