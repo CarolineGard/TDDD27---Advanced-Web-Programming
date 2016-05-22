@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { BerryPlace } from './berryplace';
 import { BerryDetailComponent } from './berry-detail.component';
+import { BerryPlaceService } from './berryplace.service';
 
 @Component({
   selector: 'my-app',
@@ -32,20 +33,40 @@ import { BerryDetailComponent } from './berry-detail.component';
         background-color: #607DaB;
       }
     `],
-    directives: [BerryDetailComponent]
+    directives: [BerryDetailComponent],
+    providers: [BerryPlaceService]
 })
-
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Smultronstället';
-  public berries = BERRIES;
+  berries: BerryPlace[];
   selectedBerry: BerryPlace;
+
+  constructor(private berryplaceService: BerryPlaceService) { }
+
+  getBerries() {
+    this.berryplaceService.getBerries().then(berries => this.berries = berries);
+  }
+
+  ngOnInit() {
+    this.getBerries();
+  }
+
   onSelect(berry: BerryPlace) { this.selectedBerry = berry; }
 }
 
-var BERRIES: BerryPlace[] = [
-  { "id": 1, "name": "Nytorget", "location": "Stockholm", "category": "gata/torg", "description": "Good for sunny days" },
-  { "id": 2, "name": "Hemma", "location": "Kungsholmen", "category": "private", "description": "Best place for a cup of tea" },
-  { "id": 3, "name": "Cafe 60", "location": "Stockholm", "category": "Café/Restaurant", "description": "Cosy cafe located in the heart of the city with the worlds best chocolate cake!" },
-  { "id": 4, "name": "Täppan", "location": "Norrköping", "category": "University", "description": "Cosy study place with cheep coffee" }
-];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
