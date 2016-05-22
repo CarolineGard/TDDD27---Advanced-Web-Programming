@@ -9,15 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var berryplace_service_1 = require('./berryplace.service');
 var StartpageComponent = (function () {
-    function StartpageComponent() {
+    function StartpageComponent(berryplaceService) {
+        this.berryplaceService = berryplaceService;
+        this.berries = [];
     }
+    StartpageComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.berryplaceService.getBerries().then(function (berries) { return _this.berries.slice(1, 5); });
+    };
+    StartpageComponent.prototype.gotoDetail = function () { };
     StartpageComponent = __decorate([
         core_1.Component({
             selector: 'my-startpage',
-            template: '<h1>Start page</h1>'
+            templateUrl: 'app/startpage.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [berryplace_service_1.BerryPlaceService])
     ], StartpageComponent);
     return StartpageComponent;
 }());

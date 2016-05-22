@@ -1,7 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { BerryPlace } from './berryplace';
+import { BerryPlaceService } from './berryplace.service';
+
 
 @Component({
 	selector: 'my-startpage',
-	template: '<h1>Start page</h1>'
+	templateUrl: 'app/startpage.component.html'
 })
-export class StartpageComponent { }
+export class StartpageComponent { 
+	berries: BerryPlace[] = [];
+	
+	constructor( private berryplaceService: BerryPlaceService ) { }
+
+	ngOnInit() {
+		this.berryplaceService.getBerries().then(berries => this.berries.slice(1, 5)); 
+	}
+	gotoDetail() { }
+}
