@@ -10,7 +10,7 @@ export class BerryPlaceService {
 		return Promise.resolve(BERRIES);
 	}
 	// See the "Take it slow" appendix
-	getHeroesSlowly() {
+	getBerriesSlowly() {
 		return new Promise<BerryPlace[]>(resolve =>
 			setTimeout(() => resolve(BERRIES), 2000) // 2 seconds
 		);

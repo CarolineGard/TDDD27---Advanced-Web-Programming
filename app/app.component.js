@@ -9,30 +9,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var berry_detail_component_1 = require('./berry-detail.component');
 var berryplace_service_1 = require('./berryplace.service');
+var berries_component_1 = require('./berries.component');
+var router_deprecated_1 = require('@angular/router-deprecated');
 var AppComponent = (function () {
-    function AppComponent(berryplaceService) {
-        this.berryplaceService = berryplaceService;
+    function AppComponent() {
         this.title = 'Smultronstället';
     }
-    AppComponent.prototype.getBerries = function () {
-        var _this = this;
-        this.berryplaceService.getBerries().then(function (berries) { return _this.berries = berries; });
-    };
-    AppComponent.prototype.ngOnInit = function () {
-        this.getBerries();
-    };
-    AppComponent.prototype.onSelect = function (berry) { this.selectedBerry = berry; };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n    <h1>{{title}}</h1>\n    <h2>Alla smultronst\u00E4llen:</h2>\n    <ul class=\"berries\">\n      <li *ngFor=\"let berry of berries\" [class.selected]=\"berry === selectedBerry\" (click)=\"onSelect(berry)\"> \n        <span class=\"badge\">{{berry.id}}</span> {{berry.name}}\n      </li>\n    </ul>\n    <my-berry-detail [berry]=\"selectedBerry\"></my-berry-detail>\n    ",
-            styles: ["\n      .selected {\n        background-color: #cfd8ca !important;\n        color: white;\n      }\n      .berries li {\n        cursor: pointer;\n        position: relative;\n        left: 0;\n      }\n      .berries li.selected:hover {\n        background-color: #607D8B;\n      }\n      .berries li:hover {\n        background-color: #607DaB;\n      }\n    "],
-            directives: [berry_detail_component_1.BerryDetailComponent],
-            providers: [berryplace_service_1.BerryPlaceService]
-        }), 
-        __metadata('design:paramtypes', [berryplace_service_1.BerryPlaceService])
+            template: "\n\t\t<h1>{{title}}</h1>\n\t\t<div class=\"menubar\"> \n\t\t\t<a [routerLink]=\"['Berries']\">Mina smultron</a>\n\t\t\t<p>V\u00E4nner</p>\n\t\t\t<p>Senaste</p>\n\t\t\t<p>Profil</p>\n\t\t\t<p>Mina likes</p>\n\t\t\t<router-outlet></router-outlet>\n\t\t\t<my-berries></my-berries>\n\t\t</div>\n\t",
+            styles: ["\n\t\t.menubar p {\n\t\t\twidth: 50;\n\t\t}\n\t"],
+            directives: [router_deprecated_1.ROUTER_DIRECTIVES],
+            providers: [
+                router_deprecated_1.ROUTER_PROVIDERS,
+                berryplace_service_1.BerryPlaceService
+            ]
+        }),
+        router_deprecated_1.RouteConfig([
+            {
+                path: '/berries',
+                name: 'Berries',
+                component: berries_component_1.BerriesComponent
+            }
+        ]), 
+        __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;
 }());

@@ -17,7 +17,7 @@ var BerryPlaceService = (function () {
         return Promise.resolve(mock_berries_1.BERRIES);
     };
     // See the "Take it slow" appendix
-    BerryPlaceService.prototype.getHeroesSlowly = function () {
+    BerryPlaceService.prototype.getBerriesSlowly = function () {
         return new Promise(function (resolve) {
             return setTimeout(function () { return resolve(mock_berries_1.BERRIES); }, 2000);
         } // 2 seconds
