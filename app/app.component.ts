@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { BerryPlaceService } from './berryplace.service';
 import { BerriesComponent } from './berries.component';
 import { StartpageComponent } from './startpage.component';
+import { BerryDetailComponent } from './berry-detail.component';
 
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 
@@ -12,10 +13,10 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/route
 		<a [routerLink]="['Startpage']"><h1>{{title}}</h1></a>
 		<nav> 
 			<a [routerLink]="['Berries']">Mina smultron</a>
-			<p>Vänner</p>
-			<p>Senaste</p>
 			<p>Profil</p>
 			<p>Mina likes</p>
+			<p>Upptäck senaste</p>
+			<p>Lägg till</p>
 			<router-outlet></router-outlet>
 			<my-berries></my-berries>
 		</nav>
@@ -40,8 +41,35 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/route
 		path: '/berries',
 		name: 'Berries',
 		component: BerriesComponent
+	},
+	{
+		path: '/detail/:id',
+		name: 'BerryPlaceDetail',
+		component: BerryDetailComponent
 	}
 ])
 export class AppComponent {
 	title = 'Smultronstället';
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

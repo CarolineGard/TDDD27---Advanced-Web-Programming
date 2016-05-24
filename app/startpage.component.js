@@ -9,23 +9,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_deprecated_1 = require('@angular/router-deprecated');
 var berryplace_service_1 = require('./berryplace.service');
 var StartpageComponent = (function () {
-    function StartpageComponent(berryplaceService) {
+    function StartpageComponent(router, berryplaceService) {
+        this.router = router;
         this.berryplaceService = berryplaceService;
         this.berries = [];
     }
     StartpageComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.berryplaceService.getBerries().then(function (berries) { return _this.berries.slice(1, 5); });
+        this.berryplaceService.getBerries().then(function (berries) { return _this.berries = berries.slice(0, 2); });
     };
-    StartpageComponent.prototype.gotoDetail = function () { };
+    StartpageComponent.prototype.gotoDetail = function (berry) {
+        var link = ['BerryPlaceDetail', { id: berry.id }];
+        this.router.navigate(link);
+    };
     StartpageComponent = __decorate([
         core_1.Component({
             selector: 'my-startpage',
             templateUrl: 'app/startpage.component.html'
         }), 
-        __metadata('design:paramtypes', [berryplace_service_1.BerryPlaceService])
+        __metadata('design:paramtypes', [router_deprecated_1.Router, berryplace_service_1.BerryPlaceService])
     ], StartpageComponent);
     return StartpageComponent;
 }());

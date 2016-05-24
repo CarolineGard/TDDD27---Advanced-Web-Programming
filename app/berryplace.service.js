@@ -16,6 +16,9 @@ var BerryPlaceService = (function () {
     BerryPlaceService.prototype.getBerries = function () {
         return Promise.resolve(mock_berries_1.BERRIES);
     };
+    BerryPlaceService.prototype.getBerry = function (id) {
+        return Promise.resolve(mock_berries_1.BERRIES).then(function (berries) { return berries.filter(function (berry) { return berry.id === id; })[0]; });
+    };
     // See the "Take it slow" appendix
     BerryPlaceService.prototype.getBerriesSlowly = function () {
         return new Promise(function (resolve) {

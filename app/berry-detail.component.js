@@ -9,20 +9,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var berryplace_1 = require('./berryplace');
+var router_deprecated_1 = require('@angular/router-deprecated');
+var berryplace_service_1 = require('./berryplace.service');
 var BerryDetailComponent = (function () {
-    function BerryDetailComponent() {
+    function BerryDetailComponent(berryplaceService, routeParams) {
+        this.berryplaceService = berryplaceService;
+        this.routeParams = routeParams;
     }
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', berryplace_1.BerryPlace)
-    ], BerryDetailComponent.prototype, "berry", void 0);
+    BerryDetailComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var id = +this.routeParams.get('id');
+        this.berryplaceService.getBerry(id).then(function (berry) { return _this.berry = berry; });
+    };
+    BerryDetailComponent.prototype.goBack = function () {
+        window.history.back();
+    };
     BerryDetailComponent = __decorate([
         core_1.Component({
             selector: 'my-berry-detail',
-            template: "\n\t<div *ngIf=\"berry\">\n\t <div>\n\t       <label>name: </label>\n\t       <input [(ngModel)]=\"berry.name\" placeholder=\"name\"><br><br>\n\t       <label>Where is it located? </label>\n\t       <input [(ngModel)]=\"berry.location\" placeholder=\"name\"><br><br>\n\t       <label>Category: </label>\n\t       <input [(ngModel)]=\"berry.category\" placeholder=\"name\"><br><br>\n\t       <label>Description: </label>\n\t       <input [(ngModel)]=\"berry.description\" placeholder=\"name\">\n       </div>\n\t</div>\n\t"
+            templateUrl: 'app/berry-detail.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [berryplace_service_1.BerryPlaceService, router_deprecated_1.RouteParams])
     ], BerryDetailComponent);
     return BerryDetailComponent;
 }());

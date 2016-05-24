@@ -1,20 +1,29 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router-deprecated';
 
 import { BerryPlace } from './berryplace';
 import { BerryPlaceService } from './berryplace.service';
 
 
+
 @Component({
 	selector: 'my-startpage',
-	templateUrl: 'app/startpage.component.html'
+	templateUrl: 'app/startpage.component.html' 
 })
-export class StartpageComponent { 
+export class StartpageComponent implements OnInit{ 
 	berries: BerryPlace[] = [];
 	
-	constructor( private berryplaceService: BerryPlaceService ) { }
+	constructor( 
+		private router: Router,
+		private berryplaceService: BerryPlaceService ) {
+		}
 
 	ngOnInit() {
-		this.berryplaceService.getBerries().then(berries => this.berries.slice(1, 5)); 
+		this.berryplaceService.getBerries().then(berries => this.berries = berries.slice(0, 2));
 	}
-	gotoDetail() { }
+
+	gotoDetail( berry: BerryPlace ) { 
+		let link = [ 'BerryPlaceDetail', { id: berry.id }];
+		this.router.navigate(link);
+	}
 }

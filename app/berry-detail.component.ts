@@ -1,25 +1,31 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { RouteParams } from '@angular/router-deprecated';
 
 import { BerryPlace } from './berryplace';
+import { BerryPlaceService } from './berryplace.service';
+
 
 @Component({
 	selector: 'my-berry-detail',
-	template: `
-	<div *ngIf="berry">
-	 <div>
-	       <label>name: </label>
-	       <input [(ngModel)]="berry.name" placeholder="name"><br><br>
-	       <label>Where is it located? </label>
-	       <input [(ngModel)]="berry.location" placeholder="name"><br><br>
-	       <label>Category: </label>
-	       <input [(ngModel)]="berry.category" placeholder="name"><br><br>
-	       <label>Description: </label>
-	       <input [(ngModel)]="berry.description" placeholder="name">
-       </div>
-	</div>
-	`
+	templateUrl: 'app/berry-detail.component.html'
+	
 })
-export class BerryDetailComponent {
-	@Input()
+export class BerryDetailComponent implements OnInit {
 	berry: BerryPlace;
+
+	constructor(
+		private berryplaceService: BerryPlaceService,
+		private routeParams: RouteParams ) {
+
+	}
+
+	ngOnInit() {
+		let id = +this.routeParams.get('id');
+		this.berryplaceService.getBerry(id).then(berry => this.berry = berry);
+	}
+
+	goBack() {
+		window.history.back();
+	}
+
 }

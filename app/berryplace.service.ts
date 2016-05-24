@@ -9,6 +9,11 @@ export class BerryPlaceService {
 	getBerries() {
 		return Promise.resolve(BERRIES);
 	}
+
+	getBerry(id: number) {
+		return Promise.resolve(BERRIES).then(berries => berries.filter(berry => berry.id === id)[0]);
+	}
+
 	// See the "Take it slow" appendix
 	getBerriesSlowly() {
 		return new Promise<BerryPlace[]>(resolve =>
