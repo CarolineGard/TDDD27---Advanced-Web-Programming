@@ -9,10 +9,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_deprecated_1 = require('@angular/router-deprecated');
 var berry_detail_component_1 = require('./berry-detail.component');
 var berryplace_service_1 = require('./berryplace.service');
 var BerriesComponent = (function () {
-    function BerriesComponent(berryplaceService) {
+    function BerriesComponent(router, berryplaceService) {
+        this.router = router;
         this.berryplaceService = berryplaceService;
         this.title = 'Smultronstället';
     }
@@ -24,14 +26,17 @@ var BerriesComponent = (function () {
         this.getBerries();
     };
     BerriesComponent.prototype.onSelect = function (berry) { this.selectedBerry = berry; };
+    BerriesComponent.prototype.gotoDetail = function () {
+        this.router.navigate(['BerryPlaceDetail', { id: this.selectedBerry.id }]);
+    };
     BerriesComponent = __decorate([
         core_1.Component({
             selector: 'my-berries',
-            template: "\n    <h1>{{title}}</h1>\n    <h2>Alla smultronst\u00E4llen:</h2>\n    <ul class=\"berries\">\n      <li *ngFor=\"let berry of berries\" [class.selected]=\"berry === selectedBerry\" (click)=\"onSelect(berry)\"> \n        <span class=\"badge\">{{berry.id}}</span> {{berry.name}}\n      </li>\n    </ul>\n    <my-berry-detail [berry]=\"selectedBerry\"></my-berry-detail>\n    ",
-            styles: ["\n      .selected {\n        background-color: #cfd8ca !important;\n        color: white;\n      }\n      .berries li {\n        cursor: pointer;\n        position: relative;\n        left: 0;\n      }\n      .berries li.selected:hover {\n        background-color: #607D8B;\n      }\n      .berries li:hover {\n        background-color: #607DaB;\n      }\n    "],
+            templateUrl: 'app/berries.component.html',
+            styleUrls: ['app/berries.component.css'],
             directives: [berry_detail_component_1.BerryDetailComponent]
         }), 
-        __metadata('design:paramtypes', [berryplace_service_1.BerryPlaceService])
+        __metadata('design:paramtypes', [router_deprecated_1.Router, berryplace_service_1.BerryPlaceService])
     ], BerriesComponent);
     return BerriesComponent;
 }());

@@ -1,0 +1,16 @@
+<h1>{{title}}</h1>
+<h2>Alla smultronställen:</h2>
+<ul class="berries">
+  <li *ngFor="let berry of berries" [class.selected]="berry === selectedBerry" (click)="onSelect(berry)"> 
+    <span class="badge">{{berry.id}}</span> {{berry.name}}
+  </li>
+</ul>
+
+<div *ngIf="selectedBerry">
+  <h2>
+    {{selectedBerry.name | uppercase}} is my hero
+  </h2>
+  <button (click)="gotoDetail()">Se detaljer</button>
+</div>
+
+<my-berry-detail [berry]="selectedBerry"></my-berry-detail>

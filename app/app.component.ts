@@ -9,21 +9,8 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/route
 
 @Component({
 	selector: 'my-app',
-	template: `
-		<a [routerLink]="['Startpage']"><h1>{{title}}</h1></a>
-		<nav> 
-			<a [routerLink]="['Berries']">Mina smultron</a>
-			<p>Profil</p>
-			<p>Mina likes</p>
-			<p>Upptäck senaste</p>
-			<p>Lägg till</p>
-			<router-outlet></router-outlet>
-			<my-berries></my-berries>
-		</nav>
-	`,
-	styles: [`
-
-	`],
+	templateUrl: 'app/app.component.html',
+	styleUrls: ['app/app.component.css'],
 	directives: [ROUTER_DIRECTIVES],
 	providers: [ 
 		ROUTER_PROVIDERS,

@@ -1,0 +1,19 @@
+
+.selected {
+    background-color: #cfd8ca !important;
+    color: white;
+}
+
+.berries li {
+    cursor: pointer;
+    position: relative;
+    left: 0;
+}
+
+.berries li.selected:hover {
+background-color: #607D8B;
+}
+
+.berries li:hover {
+background-color: #607DaB;
+}

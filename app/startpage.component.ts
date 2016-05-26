@@ -23,7 +23,7 @@ export class StartpageComponent implements OnInit{
 	}
 
 	gotoDetail( berry: BerryPlace ) { 
-		let link = [ 'BerryPlaceDetail', { id: berry.id }];
+		let link = ['BerryPlaceDetail', { id: berry.id }];
 		this.router.navigate(link);
 	}
 }
