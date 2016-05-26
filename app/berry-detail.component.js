@@ -27,7 +27,8 @@ var BerryDetailComponent = (function () {
     BerryDetailComponent = __decorate([
         core_1.Component({
             selector: 'my-berry-detail',
-            templateUrl: 'app/berry-detail.component.html'
+            templateUrl: 'app/berry-detail.component.html',
+            styleUrls: ['app/berry-detail.component.css']
         }), 
         __metadata('design:paramtypes', [berryplace_service_1.BerryPlaceService, router_deprecated_1.RouteParams])
     ], BerryDetailComponent);

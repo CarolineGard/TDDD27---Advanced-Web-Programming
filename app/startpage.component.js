@@ -19,7 +19,7 @@ var StartpageComponent = (function () {
     }
     StartpageComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.berryplaceService.getBerries().then(function (berries) { return _this.berries = berries.slice(0, 2); });
+        this.berryplaceService.getBerries().then(function (berries) { return _this.berries = berries.slice(0, 5); });
     };
     StartpageComponent.prototype.gotoDetail = function (berry) {
         var link = ['BerryPlaceDetail', { id: berry.id }];
@@ -28,7 +28,8 @@ var StartpageComponent = (function () {
     StartpageComponent = __decorate([
         core_1.Component({
             selector: 'my-startpage',
-            templateUrl: 'app/startpage.component.html'
+            templateUrl: 'app/startpage.component.html',
+            styleUrls: ['app/startpage.component.css']
         }), 
         __metadata('design:paramtypes', [router_deprecated_1.Router, berryplace_service_1.BerryPlaceService])
     ], StartpageComponent);

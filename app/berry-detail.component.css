@@ -1,0 +1,21 @@
+.content-detail {
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 6em;
+}
+
+h2 {
+	color: #bfbfbf;
+}
+
+label {
+	color: #ff99c2;
+}
+
+p {
+	margin-top: 1px;
+}
+
+button {
+	margin-top: 1em;
+}

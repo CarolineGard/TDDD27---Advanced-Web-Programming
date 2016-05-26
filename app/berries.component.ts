@@ -12,7 +12,7 @@ import { BerryPlaceService } from './berryplace.service';
   directives: [BerryDetailComponent]
 })
 export class BerriesComponent implements OnInit {
-  title = 'Smultronstället';
+  title = 'Mina smultron';
   berries: BerryPlace[];
   selectedBerry: BerryPlace;
 
@@ -31,7 +31,7 @@ export class BerriesComponent implements OnInit {
   onSelect(berry: BerryPlace) { this.selectedBerry = berry; }
 
   gotoDetail() {
-    this.router.navigate(['BerryPlaceDetail', { id: this.selectedBerry.id }]);
+    this.router.navigate(['BerryPlaceDetail', { id: this.selectedBerry.id }]); 
   }
 }
 

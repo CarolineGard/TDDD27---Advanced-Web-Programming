@@ -9,11 +9,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_deprecated_1 = require('@angular/router-deprecated');
 var berryplace_service_1 = require('./berryplace.service');
 var berries_component_1 = require('./berries.component');
 var startpage_component_1 = require('./startpage.component');
 var berry_detail_component_1 = require('./berry-detail.component');
-var router_deprecated_1 = require('@angular/router-deprecated');
+var profile_page_component_1 = require('./profile-page.component');
+var liked_berries_component_1 = require('./liked-berries.component');
+var latest_berries_component_1 = require('./latest-berries.component');
+var add_berry_component_1 = require('./add-berry.component');
 var AppComponent = (function () {
     function AppComponent() {
         this.title = 'Smultronstället';
@@ -40,6 +44,26 @@ var AppComponent = (function () {
                 path: '/berries',
                 name: 'Berries',
                 component: berries_component_1.BerriesComponent
+            },
+            {
+                path: 'profile',
+                name: 'Profile',
+                component: profile_page_component_1.ProfilePageComponent
+            },
+            {
+                path: 'mylikes',
+                name: 'MyLikes',
+                component: liked_berries_component_1.LikedBerriesComponent
+            },
+            {
+                path: 'latest',
+                name: 'Latest',
+                component: latest_berries_component_1.LatestBerriesComponent
+            },
+            {
+                path: 'add',
+                name: 'Add',
+                component: add_berry_component_1.AddBerryComponent
             },
             {
                 path: '/detail/:id',

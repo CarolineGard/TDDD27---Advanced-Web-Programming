@@ -16,7 +16,7 @@ var BerriesComponent = (function () {
     function BerriesComponent(router, berryplaceService) {
         this.router = router;
         this.berryplaceService = berryplaceService;
-        this.title = 'Smultronstället';
+        this.title = 'Mina smultron';
     }
     BerriesComponent.prototype.getBerries = function () {
         var _this = this;

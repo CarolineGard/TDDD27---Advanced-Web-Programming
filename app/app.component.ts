@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
+import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 
 import { BerryPlaceService } from './berryplace.service';
 import { BerriesComponent } from './berries.component';
 import { StartpageComponent } from './startpage.component';
 import { BerryDetailComponent } from './berry-detail.component';
-
-import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
+import { ProfilePageComponent } from './profile-page.component';
+import { LikedBerriesComponent } from './liked-berries.component';
+import { LatestBerriesComponent } from './latest-berries.component';
+import { AddBerryComponent } from './add-berry.component';
 
 @Component({
 	selector: 'my-app',
@@ -28,6 +31,26 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/route
 		path: '/berries',
 		name: 'Berries',
 		component: BerriesComponent
+	},
+	{
+		path: 'profile',
+		name: 'Profile',
+		component: ProfilePageComponent
+	},
+	{
+		path: 'mylikes',
+		name: 'MyLikes',
+		component: LikedBerriesComponent
+	},
+	{
+		path: 'latest',
+		name: 'Latest',
+		component: LatestBerriesComponent
+	},
+	{
+		path: 'add',
+		name: 'Add',
+		component: AddBerryComponent
 	},
 	{
 		path: '/detail/:id',

@@ -1,3 +1,18 @@
+h1 {
+	color: #bfbfbf;
+}
+
+span:hover {
+	color: #ff99c2;
+}
+
+.content-my-berries {
+	height: 100%;
+	width: 70%;
+	margin: 0 auto;
+	margin-top: 5em;
+	text-align: center;
+}
 
 .selected {
     background-color: #cfd8ca !important;

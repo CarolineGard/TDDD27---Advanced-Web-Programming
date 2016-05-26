@@ -5,10 +5,10 @@ import { BerryPlace } from './berryplace';
 import { BerryPlaceService } from './berryplace.service';
 
 
-
 @Component({
 	selector: 'my-startpage',
-	templateUrl: 'app/startpage.component.html' 
+	templateUrl: 'app/startpage.component.html' ,
+	styleUrls: ['app/startpage.component.css']
 })
 export class StartpageComponent implements OnInit{ 
 	berries: BerryPlace[] = [];
@@ -19,7 +19,7 @@ export class StartpageComponent implements OnInit{
 		}
 
 	ngOnInit() {
-		this.berryplaceService.getBerries().then(berries => this.berries = berries.slice(0, 2));
+		this.berryplaceService.getBerries().then(berries => this.berries = berries.slice(0, 5));
 	}
 
 	gotoDetail( berry: BerryPlace ) { 
