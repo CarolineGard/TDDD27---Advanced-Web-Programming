@@ -13,12 +13,13 @@ var router_deprecated_1 = require('@angular/router-deprecated');
 var AddBerryComponent = (function () {
     function AddBerryComponent(routeParams) {
         this.routeParams = routeParams;
-        this.title = 'MINA LIKES';
+        this.title = 'Add a new berry';
     }
     AddBerryComponent = __decorate([
         core_1.Component({
             selector: 'my-likes',
-            template: '<h1>{{title}}</h1>'
+            templateUrl: 'app/add-berry.component.html',
+            styleUrls: ['app/add-berry.component.css']
         }), 
         __metadata('design:paramtypes', [router_deprecated_1.RouteParams])
     ], AddBerryComponent);

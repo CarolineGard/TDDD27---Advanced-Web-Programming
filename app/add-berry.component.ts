@@ -4,11 +4,12 @@ import { RouteParams } from '@angular/router-deprecated';
 
 @Component({
 	selector: 'my-likes',
-	template: '<h1>{{title}}</h1>'
+	templateUrl: 'app/add-berry.component.html',
+	styleUrls: ['app/add-berry.component.css']
 })
 
 export class AddBerryComponent {
-	title = 'MINA LIKES';
+	title = 'Add a new berry';
 
 	constructor(private routeParams: RouteParams) { }
 }
