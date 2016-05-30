@@ -12,7 +12,7 @@ import { BerryPlaceService } from './berryplace.service';
   directives: [BerryDetailComponent]
 })
 export class BerriesComponent implements OnInit {
-  title = 'Mina smultron';
+  title = 'Mina smultron'; 
   berries: BerryPlace[];
   selectedBerry: BerryPlace;
 
