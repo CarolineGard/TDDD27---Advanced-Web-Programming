@@ -28,8 +28,8 @@ var StartpageComponent = (function () {
     StartpageComponent = __decorate([
         core_1.Component({
             selector: 'my-startpage',
-            templateUrl: 'app/startpage.component.html',
-            styleUrls: ['app/startpage.component.css']
+            templateUrl: './src/client/views/startpage.component.html',
+            styleUrls: ['./src/client/css/startpage.component.css']
         }), 
         __metadata('design:paramtypes', [router_deprecated_1.Router, berryplace_service_1.BerryPlaceService])
     ], StartpageComponent);

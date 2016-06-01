@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
+var path = require('path');
 //touch hej.html
 
 //extract data from <form>
@@ -11,11 +12,19 @@ app.listen(4000, function() {
   console.log('listening on 4000')
 })
 
-//app.get(path, callback)
+app.get(path)
+
+// app.set('views', './src/client/views')
+// app.set('view engine', 'ejs')
+// app.engine('html', require('ejs').renderFile);
+
+// app.use("node_modules", express.static(path.resolve(__dirname, '../../node_modules')))
+// app.use("app", express.static(path.resolve(__dirname, '../client/app')))
 
 app.get('/', (req, res) => {
   console.log('Vad kul!!!')
-  res.sendFile(__dirname + '/hej.html')
+  //res.sendFile(__dirname + '../../hej.html')
+  res.sendFile(path.join(__dirname, '..', '..', 'hej.html'))
 })
 
 app.post('/quotes', (req, res) => {
