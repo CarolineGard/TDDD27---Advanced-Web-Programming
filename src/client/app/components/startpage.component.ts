@@ -7,7 +7,7 @@ import { BerryPlaceService } from './berryplace.service';
 
 @Component({
 	selector: 'my-startpage',
-	templateUrl: './src/client/views/startpage.component.html' ,
+	templateUrl: './src/client/views/startpage.component.html',
 	styleUrls: ['./src/client/css/startpage.component.css']
 })
 export class StartpageComponent implements OnInit{ 

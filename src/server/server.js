@@ -1,38 +1,60 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const app = express()
+// const express = require('express')
+// const bodyParser = require('body-parser')
+// const app = express()
+// var path = require('path');
+// //touch hej.html
+
+// //extract data from <form>
+// app.use(bodyParser.urlencoded({extended: true}))
+
+
+// app.listen(process.env.PORT || 4000, function() {
+//   console.log('listening on 4000')
+// })
+
+// app.get(path)
+
+// // app.set('views', './src/client/views')
+// // app.set('view engine', 'ejs')
+// // app.engine('html', require('ejs').renderFile);
+
+// //app.use("node_modules", express.static(path.resolve(__dirname, '../../node_modules')))
+// // app.use("app", express.static(path.resolve(__dirname, '../client/app')))
+
+// app.get('/', (req, res) => {
+//   console.log('Vad kul!!!')
+//   //res.sendFile(__dirname + '../../hej.html')
+//   res.sendFile(path.join(__dirname, '..', '..', 'index.html'))
+// })
+
+// app.post('/addnew', (req, res) => {
+//   console.log('HELLOOOOOOOOO!')
+//   console.log(req.body)
+// })
+
+"use strict";
+var express = require('express');
 var path = require('path');
-//touch hej.html
-
-//extract data from <form>
-app.use(bodyParser.urlencoded({extended: true}))
-
-
-app.listen(4000, function() {
-  console.log('listening on 4000')
-})
-
-app.get(path)
-
-// app.set('views', './src/client/views')
-// app.set('view engine', 'ejs')
-// app.engine('html', require('ejs').renderFile);
-
-// app.use("node_modules", express.static(path.resolve(__dirname, '../../node_modules')))
-// app.use("app", express.static(path.resolve(__dirname, '../client/app')))
-
-app.get('/', (req, res) => {
-  console.log('Vad kul!!!')
-  //res.sendFile(__dirname + '../../hej.html')
-  res.sendFile(path.join(__dirname, '..', '..', 'hej.html'))
-})
-
-app.post('/quotes', (req, res) => {
-  console.log('HELLOOOOOOOOO!')
-  console.log(req.body)
-})
-
-
+var port = process.env.PORT || 3000;
+var app = express();
+app.set('views', './src/client/views');
+app.set('view engine', 'ejs');
+app.engine('html', require('ejs').renderFile);
+app.use("/node_modules", express.static(path.resolve(__dirname, '../../node_modules')));
+app.use("/", express.static(path.resolve(__dirname, '../../')));
+app.use("/app", express.static(path.resolve(__dirname, '../client/app/components')));
+//app.use("/", express.static(path.resolve(__dirname, '../../systemjs.config.js')));
+app.use("/*.html", function (req, res) {
+    res.render(req.params[0] + ".html");
+});
+app.get('/', function (req, res) {
+    res.render('index.html');
+});
+var server = app.listen(port, function () {
+    var host = server.address().address;
+    var port = server.address().port;
+    console.log('Listen to port' + port);
+});
 
 
 

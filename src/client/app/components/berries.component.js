@@ -32,8 +32,8 @@ var BerriesComponent = (function () {
     BerriesComponent = __decorate([
         core_1.Component({
             selector: 'my-berries',
-            templateUrl: 'app/berries.component.html',
-            styleUrls: ['app/berries.component.css'],
+            templateUrl: './src/client/views/berries.component.html',
+            styleUrls: ['./src/client/css/berries.component.css'],
             directives: [berry_detail_component_1.BerryDetailComponent]
         }), 
         __metadata('design:paramtypes', [router_deprecated_1.Router, berryplace_service_1.BerryPlaceService])
