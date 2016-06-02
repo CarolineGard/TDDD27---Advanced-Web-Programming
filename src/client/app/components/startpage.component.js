@@ -10,35 +10,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
-var berry_detail_component_1 = require('./berry-detail.component');
 var berryplace_service_1 = require('./berryplace.service');
-var BerriesComponent = (function () {
-    function BerriesComponent(router, berryplaceService) {
+var StartpageComponent = (function () {
+    function StartpageComponent(router, berryplaceService) {
         this.router = router;
         this.berryplaceService = berryplaceService;
-        this.title = 'Mina smultron';
+        this.berries = [];
     }
-    BerriesComponent.prototype.getBerries = function () {
+    StartpageComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.berryplaceService.getBerries().then(function (berries) { return _this.berries = berries; });
+        this.berryplaceService.getBerries().then(function (berries) { return _this.berries = berries.slice(0, 5); });
     };
-    BerriesComponent.prototype.ngOnInit = function () {
-        this.getBerries();
+    StartpageComponent.prototype.gotoDetail = function (berry) {
+        var link = ['BerryPlaceDetail', { id: berry.id }];
+        this.router.navigate(link);
     };
-    BerriesComponent.prototype.onSelect = function (berry) { this.selectedBerry = berry; };
-    BerriesComponent.prototype.gotoDetail = function () {
-        this.router.navigate(['BerryPlaceDetail', { id: this.selectedBerry.id }]);
-    };
-    BerriesComponent = __decorate([
+    StartpageComponent = __decorate([
         core_1.Component({
-            selector: 'my-berries',
-            templateUrl: 'app/berries.component.html',
-            styleUrls: ['app/berries.component.css'],
-            directives: [berry_detail_component_1.BerryDetailComponent]
+            selector: 'my-startpage',
+            templateUrl: './src/client/views/startpage.component.html',
+            styleUrls: ['./src/client/css/startpage.component.css']
         }), 
         __metadata('design:paramtypes', [router_deprecated_1.Router, berryplace_service_1.BerryPlaceService])
-    ], BerriesComponent);
-    return BerriesComponent;
+    ], StartpageComponent);
+    return StartpageComponent;
 }());
-exports.BerriesComponent = BerriesComponent;
-//# sourceMappingURL=berries.component.js.map
+exports.StartpageComponent = StartpageComponent;
+//# sourceMappingURL=startpage.component.js.map

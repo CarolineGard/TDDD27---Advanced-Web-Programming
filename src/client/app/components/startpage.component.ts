@@ -7,8 +7,8 @@ import { BerryPlaceService } from './berryplace.service';
 
 @Component({
 	selector: 'my-startpage',
-	templateUrl: 'app/startpage.component.html' ,
-	styleUrls: ['app/startpage.component.css']
+	templateUrl: './src/client/views/startpage.component.html',
+	styleUrls: ['./src/client/css/startpage.component.css']
 })
 export class StartpageComponent implements OnInit{ 
 	berries: BerryPlace[] = [];

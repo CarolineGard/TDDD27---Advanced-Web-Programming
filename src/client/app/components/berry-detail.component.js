@@ -11,29 +11,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
 var berryplace_service_1 = require('./berryplace.service');
-var StartpageComponent = (function () {
-    function StartpageComponent(router, berryplaceService) {
-        this.router = router;
+var BerryDetailComponent = (function () {
+    function BerryDetailComponent(berryplaceService, routeParams) {
         this.berryplaceService = berryplaceService;
-        this.berries = [];
+        this.routeParams = routeParams;
     }
-    StartpageComponent.prototype.ngOnInit = function () {
+    BerryDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.berryplaceService.getBerries().then(function (berries) { return _this.berries = berries.slice(0, 5); });
+        var id = +this.routeParams.get('id');
+        this.berryplaceService.getBerry(id).then(function (berry) { return _this.berry = berry; });
     };
-    StartpageComponent.prototype.gotoDetail = function (berry) {
-        var link = ['BerryPlaceDetail', { id: berry.id }];
-        this.router.navigate(link);
+    BerryDetailComponent.prototype.goBack = function () {
+        window.history.back();
     };
-    StartpageComponent = __decorate([
+    BerryDetailComponent = __decorate([
         core_1.Component({
-            selector: 'my-startpage',
-            templateUrl: 'app/startpage.component.html',
-            styleUrls: ['app/startpage.component.css']
+            selector: 'my-berry-detail',
+            templateUrl: './src/client/views/berry-detail.component.html',
+            styleUrls: ['./src/client/css/berry-detail.component.css']
         }), 
-        __metadata('design:paramtypes', [router_deprecated_1.Router, berryplace_service_1.BerryPlaceService])
-    ], StartpageComponent);
-    return StartpageComponent;
+        __metadata('design:paramtypes', [berryplace_service_1.BerryPlaceService, router_deprecated_1.RouteParams])
+    ], BerryDetailComponent);
+    return BerryDetailComponent;
 }());
-exports.StartpageComponent = StartpageComponent;
-//# sourceMappingURL=startpage.component.js.map
+exports.BerryDetailComponent = BerryDetailComponent;
+//# sourceMappingURL=berry-detail.component.js.map

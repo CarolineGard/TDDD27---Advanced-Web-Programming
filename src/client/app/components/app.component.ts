@@ -12,8 +12,8 @@ import { AddBerryComponent } from './add-berry.component';
 
 @Component({
 	selector: 'my-app',
-	templateUrl: 'app/app.component.html',
-	styleUrls: ['app/app.component.css'],
+	templateUrl: './src/client/views/app.component.html',
+	styleUrls: ['./src/client/css/app.component.css'],
 	directives: [ROUTER_DIRECTIVES],
 	providers: [ 
 		ROUTER_PROVIDERS,

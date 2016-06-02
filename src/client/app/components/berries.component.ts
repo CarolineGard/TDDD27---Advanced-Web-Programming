@@ -7,12 +7,12 @@ import { BerryPlaceService } from './berryplace.service';
 
 @Component({
   selector: 'my-berries',
-  templateUrl: 'app/berries.component.html', 
-  styleUrls: ['app/berries.component.css'],
+  templateUrl: './src/client/views/berries.component.html', 
+  styleUrls: ['./src/client/css/berries.component.css'],
   directives: [BerryDetailComponent]
 })
 export class BerriesComponent implements OnInit {
-  title = 'Mina smultron';
+  title = 'Mina smultron'; 
   berries: BerryPlace[];
   selectedBerry: BerryPlace;
 

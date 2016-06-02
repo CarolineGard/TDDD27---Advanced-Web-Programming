@@ -7,8 +7,8 @@ import { BerryPlaceService } from './berryplace.service';
 
 @Component({
 	selector: 'my-berry-detail',
-	templateUrl: 'app/berry-detail.component.html',
-	styleUrls: ['app/berry-detail.component.css']
+	templateUrl: './src/client/views/berry-detail.component.html',
+	styleUrls: ['./src/client/css/berry-detail.component.css']
 	
 })
 export class BerryDetailComponent implements OnInit {

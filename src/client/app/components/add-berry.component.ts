@@ -4,12 +4,12 @@ import { RouteParams } from '@angular/router-deprecated';
 
 @Component({
 	selector: 'my-likes',
-	templateUrl: 'app/add-berry.component.html',
-	styleUrls: ['app/add-berry.component.css']
+	templateUrl: './src/client/views/add-berry.component.html',
+	styleUrls: ['./src/client/css/add-berry.component.css']
 })
 
 export class AddBerryComponent {
-	title = 'Add a new berry';
+	title = 'Lägg till nytt smultron';
 
 	constructor(private routeParams: RouteParams) { }
 }
