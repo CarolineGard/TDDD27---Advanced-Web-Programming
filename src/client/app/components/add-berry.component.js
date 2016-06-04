@@ -17,7 +17,7 @@ var AddBerryComponent = (function () {
     }
     AddBerryComponent = __decorate([
         core_1.Component({
-            selector: 'my-likes',
+            selector: 'my-addnew',
             templateUrl: './src/client/views/add-berry.component.html',
             styleUrls: ['./src/client/css/add-berry.component.css']
         }), 
