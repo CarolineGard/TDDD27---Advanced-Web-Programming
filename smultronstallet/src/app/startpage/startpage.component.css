@@ -1,0 +1,22 @@
+.content-startpage {
+	text-align: center;
+}
+
+h1 {
+	color: #bfbfbf;
+}
+
+h3 {
+	color: #ff99c2;
+}
+
+h4 {
+	width: 8%;
+	cursor: pointer;
+	margin: 0 auto;
+	margin-top: 2em;
+}
+
+h4:hover {
+	color: #ff99c2;
+}

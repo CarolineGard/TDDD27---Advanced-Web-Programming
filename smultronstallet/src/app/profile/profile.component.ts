@@ -9,6 +9,7 @@ import { ROUTER_DIRECTIVES, Router } from '@angular/router';
   directives: [ ROUTER_DIRECTIVES ]
 })
 export class ProfileComponent implements OnInit {
+  title = 'Profil';
 
   constructor( private router: Router ) { }
 

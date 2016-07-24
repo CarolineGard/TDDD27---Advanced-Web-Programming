@@ -9,6 +9,7 @@ import { ROUTER_DIRECTIVES, Router } from '@angular/router';
   directives: [ ROUTER_DIRECTIVES ]
 })
 export class ExploreComponent implements OnInit {
+  title = 'Upptäck nya smultronställen';
 
   constructor() { }
 
