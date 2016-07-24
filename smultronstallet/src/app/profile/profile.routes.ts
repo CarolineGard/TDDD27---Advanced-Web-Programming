@@ -3,7 +3,7 @@ import { ProfileComponent } from './profile.component';
 
 export const ProfileRoutes = [
 	{
-		path: '/profile',
+		path: 'profile',
 		component: ProfileComponent,
 		index: true
 	}

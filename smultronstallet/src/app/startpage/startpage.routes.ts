@@ -3,7 +3,7 @@ import { StartpageComponent } from './startpage.component';
 
 export const StartpageRoutes = [
 	{
-		path: '/start',
+		path: 'start',
 		component: StartpageComponent,
 		index: true
 	}

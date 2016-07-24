@@ -1,12 +1,14 @@
 <div class="navbar-menu">
 	<a [routerLink]="['Startpage']"><h1>{{title}}</h1></a>
 	<nav> 
-		<a [routerLink]="['Berries']">Mina smultron</a>
-		<a [routerLink]="['Profile']">Profil</a>
-		<a [routerLink]="['MyLikes']">Mina likes</a>
-		<a [routerLink]="['Latest']">Upptäck senaste</a>
-		<a [routerLink]="['Add']">Lägg till</a>
+		<a [routerLink]="['profile']">Profil</a>
+		<a [routerLink]="['likes']">Mina likes</a>
+		<a [routerLink]="['explore']">Upptäck senaste</a>
+		<a [routerLink]="['add']">Lägg till</a>
 		<router-outlet></router-outlet>
 	</nav>
 </div>
-<router-outlet></router-outlet>
+<div class="content">
+	<router-outlet></router-outlet>
+</div>
+

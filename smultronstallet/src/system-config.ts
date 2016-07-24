@@ -38,6 +38,9 @@ const barrels: string[] = [
   'app/shared',
   'app/startpage',
   'app/profile',
+  'app/my-likes',
+  'app/add-berry',
+  'app/explore',
   /** @cli-barrel */
 ];
 
